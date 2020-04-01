@@ -1,0 +1,105 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <script>
+      // exercício 1 -----------------------------
+      var endereco = {
+        rua: "Rua Golden Street",
+        numero: 412,
+        bairro: "Luz",
+        cidade: "Recife",
+        uf: "PE"
+      };
+
+      function descreveEndereco(endereco) {
+        var resultado =
+          "O usuário mora em " +
+          endereco.cidade +
+          " / " +
+          endereco.uf +
+          ", no bairro " +
+          endereco.bairro +
+          ', na rua "' +
+          endereco.rua +
+          '" com nº ' +
+          endereco.numero +
+          ".";
+
+        return resultado;
+      }
+
+      console.log(descreveEndereco(endereco));
+
+      //exercício 2 -----------------------------
+      function pares(x, y) {
+        var i, r;
+
+        if (x < y) {
+          i = x;
+          r = y;
+        } else {
+          i = y;
+          r = x;
+        }
+
+        while (i <= r) {
+          if (i % 2 == 0) {
+            console.log(i);
+          }
+          i++;
+        }
+      }
+
+      pares(12, 21);
+
+      //exercício 3 -----------------------------
+      function temHabilidade(skills) {
+        var index = skills.indexOf("Javascript");
+        if (index != -1) {
+          return true;
+        } else {
+          return false;
+        }
+      }
+      var skills = ["Javascript", "ReactJS", "React Native"];
+      console.log(temHabilidade(skills)); // true ou false
+
+      //exercício 4 -----------------------------
+      function experiencia(anos) {
+        if (anos <= 1) {
+          return "Iniciante";
+        } else if (anos > 1 && anos <= 3) {
+          return "Intermediário";
+        } else if (anos > 3 && anos <= 6) {
+          return "Avançado";
+        } else {
+          return "Mestre Jedi";
+        }
+      }
+
+      var anosEstudo = 7;
+      var minhaExp = experiencia(anosEstudo);
+      console.log(minhaExp);
+
+      //exercício 5 -----------------------------
+      var usuarios = [
+        {
+          nome: "Diego",
+          habilidades: ["Javascript", "ReactJS", "Redux"]
+        },
+        {
+          nome: "Gabriel",
+          habilidades: ["VueJS", "Ruby on Rails", "Elixir"]
+        }
+      ];
+
+      for (let usuario of usuarios) {
+        var username = usuario.nome;
+        var userhab = usuario.habilidades.join(", ");
+        console.log("O " + username + " possui as habilidades: " + userhab);
+      }
+    </script>
+  </body>
+</html>

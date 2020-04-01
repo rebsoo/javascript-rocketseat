@@ -1,0 +1,62 @@
+<html>
+  <head>
+    <title>Curso Javascript</title>
+  </head>
+  <body>
+    <div id="app">
+      <input type="text" name="nome" />
+      <button onClick="adicionar()">Add Name</button>
+      <button class="botao">Let's do a red box!</button>
+    </div>
+    <script>
+      // exercício 1 -----------------------------
+      var appElement = document.querySelector("#app"); // div com o id 'app'
+      var buttonElement = document.querySelector("button.botao");
+
+      buttonElement.onclick = function() {
+        // funcão que cria um quadrado vermelho a cada click
+        var boxElement = document.createElement("div");
+        boxElement.setAttribute("class", "redbox");
+        boxElement.style.width = 100;
+        boxElement.style.height = 100;
+        boxElement.style.backgroundColor = "#f00";
+
+        boxElement.onmouseover = function() {
+          boxElement.style.backgroundColor = getRandomColor(); // muda a cor do quadrado ao passar o mouse
+        };
+        appElement.appendChild(boxElement); // colocando o quadrado dentro da div com id 'app'
+      };
+
+      // exercício 2 -----------------------------
+      function getRandomColor() {
+        var letters = "0123456789ABCDEF";
+        var color = "#";
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+
+      // exercício 3 -----------------------------
+      var listaNomes = ["Diego", "Gabriel", "Lucas"];
+
+      var list = document.createElement("ul");
+      appElement.appendChild(list);
+
+      for (var i = 0; i < listaNomes.length; i++) {
+        var nameListed = document.createElement("li");
+        nameListed.textContent = listaNomes[i];
+        list.appendChild(nameListed);
+      }
+      // exercício 4 -----------------------------
+      var inputElement = document.querySelector("input[name=nome]");
+
+      function adicionar() {
+        var nameListed = document.createElement("li");
+        nameListed.textContent = inputElement.value;
+        list.appendChild(nameListed);
+        inputElement.value = ""; // limpa o input
+      }
+    </script>
+  </body>
+</html>
